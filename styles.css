@@ -11,7 +11,7 @@
     scale: 100%;
   }
   100% {
-    scale: 95%;
+    scale: 20%;
   }
 }
 body {
@@ -87,7 +87,7 @@ body .card__wrapper .card__wrapper__info .card__wrapper__share {
   border-radius: 50%;
 }
 body .card__wrapper .card__wrapper__info .card__wrapper__share:active {
-  animation: scale-down 0.5s;
+  animation: scale-down 0.1s;
 }
 body .card__wrapper .card__wrapper__notification {
   background-color: hsl(217, 19%, 35%);
@@ -100,6 +100,7 @@ body .card__wrapper .card__wrapper__notification {
   padding-inline: 2rem;
   padding-block: 0.7rem;
   border-radius: 0.5rem;
+  visibility: hidden;
 }
 body .card__wrapper .card__wrapper__notification .notification__header {
   color: hsl(214, 17%, 51%);

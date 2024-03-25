@@ -31,7 +31,7 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
         scale: 100%;
     }
     100% {
-        scale: 95%;
+        scale: 20%;
     }
 }
 
@@ -117,7 +117,7 @@ body {
                 border-radius: 50%;
 
                 &:active {
-                    @include animation("scale-down 0.5s");
+                    @include animation("scale-down 0.1s");
                 }
             }
         }
@@ -133,6 +133,7 @@ body {
             padding-inline: 2rem;
             padding-block: 0.7rem;
             border-radius: 0.5rem;
+            visibility: hidden;
 
             .notification__header {
                 color: $Desaturated-Dark-Blue;
