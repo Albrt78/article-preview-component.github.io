@@ -94,7 +94,7 @@ body .card__wrapper .card__wrapper__info .card__wrapper__share:active {
 body .card__wrapper .card__wrapper__notification {
   background-color: hsl(217, 19%, 35%);
   position: absolute;
-  top: 45%;
+  top: 51%;
   right: 21.5%;
   display: flex;
   align-items: center;
