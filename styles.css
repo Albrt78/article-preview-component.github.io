@@ -20,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 90.5dvh;
+  min-height: 100dvh;
   padding-inline: 2rem;
   background-color: hsl(210, 46%, 95%);
   font-family: "Manrope", sans-serif;
