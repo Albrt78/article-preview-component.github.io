@@ -13,9 +13,6 @@ $Light-Grayish-Blue: hsl(210, 46%, 95%);
 }
 
 @mixin keyframes($animation-name) {
-    @-webkit-keyframes #{animation-name} {
-        @content;
-    }
     @keyframes #{$animation-name} {
         @content;
     }
@@ -87,6 +84,7 @@ body {
 
             .card__wrapper__profile {
                 display: flex;
+                align-items: center;
                 gap: 1.1rem;
 
                 img {
@@ -126,14 +124,15 @@ body {
             background-color: $Very-Dark-Grayish-Blue;
             position: absolute;
             top: 45%;
-            right: 18%;
+            right: 21.5%;
             display: flex;
             align-items: center;
             gap: 1rem;
             padding-inline: 2rem;
             padding-block: 0.7rem;
             border-radius: 0.5rem;
-            visibility: hidden;
+            opacity: 0;
+            transition: 0.3s ease-in;
 
             .notification__header {
                 color: $Desaturated-Dark-Blue;
@@ -157,12 +156,21 @@ body {
             }
 
             &::before {
+                $size: 1rem;
+
                 content: "";
                 position: absolute;
-                background-color: red;
-                width: 10rem;
-                top: 0;
-                right: 0;
+                border-top: $size solid $Very-Dark-Grayish-Blue;
+                border-bottom: $size solid transparent;
+                border-right: $size solid transparent;
+                border-left: $size solid transparent;
+                bottom: -2rem;
+                left: 50%;
+                right: 50%;
+            }
+
+            &.active {
+                opacity: 100%;
             }
         }
     }
@@ -173,6 +181,90 @@ body {
 
         a {
             color: hsl(228, 45%, 44%);
+        }
+    }
+
+    @media (max-width: 1439px) {
+        .card__wrapper {
+            position: relative;
+
+            .card__wrapper__notification {
+                top: 55%;
+                right: 2.3rem;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 780.98px) {
+        .card__wrapper {
+            .card__wrapper__detail {
+                padding-block: 1.3rem;
+            }
+        }
+    }
+
+    @media (max-width: 768.98px) {
+        padding-top: 3rem;
+
+        .card__wrapper {
+            grid-template-columns: 1fr;
+            column-gap: 0;
+            height: auto;
+            max-width: 100%;
+
+            .card__wrapper__img {
+                width: 100%;
+            }
+
+            .card__wrapper__detail {
+                padding-block: 2.5rem;
+                padding-inline: 2rem;
+            }
+        }
+    }
+
+    @media (max-width: 375.98px) {
+        .card__wrapper {
+            .card__wrapper__detail {
+                .card__wrapper__header {
+                    font-size: 0.9rem;
+                }
+
+                .card__wrapper__description {
+                    font-size: 0.75rem;
+                }
+            }
+
+            .card__wrapper__info {
+                .card__wrapper__profile {
+                    .profile__wrapper {
+                        .profile__wrapper__header {
+                            font-size: 0.7rem;
+                        }
+
+                        .profile__wrapper__date {
+                            font-size: 0.6rem;
+                        }
+                    }
+                }
+
+                .card__wrapper__share {
+                    background-color: $Light-Grayish-Blue;
+                    line-height: 1.9;
+                    text-align: center;
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+
+                    &:active {
+                        @include animation("scale-down 0.1s");
+                    }
+                }
+            }
         }
     }
 }
