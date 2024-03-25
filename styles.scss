@@ -1,0 +1,270 @@
+$Very-Dark-Grayish-Blue: hsl(217, 19%, 35%);
+$Desaturated-Dark-Blue: hsl(214, 17%, 51%);
+$Grayish-Blue: hsl(212, 23%, 69%);
+$Light-Grayish-Blue: hsl(210, 46%, 95%);
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+@mixin keyframes($animation-name) {
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($str) {
+    -webkit-animation: #{$str};
+    animation: #{$str};
+}
+
+@include keyframes(scale-down) {
+    0% {
+        scale: 100%;
+    }
+    100% {
+        scale: 20%;
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 90.5dvh;
+    padding-inline: 2rem;
+    background-color: $Light-Grayish-Blue;
+    font-family: "Manrope", sans-serif;
+
+    .card__wrapper {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        column-gap: 2.5rem;
+        background-color: #fff;
+        border-radius: 0.4rem;
+        overflow: hidden;
+        height: 280px;
+        max-width: 45.5rem;
+
+        .card__wrapper__img {
+            width: 17.7rem;
+            height: 100%;
+        }
+
+        .card__wrapper__detail {
+            padding-block: 2rem;
+            padding-inline-end: 2.35rem;
+
+            .card__wrapper__header {
+                font-size: 1.28rem;
+                font-weight: 700;
+                color: $Very-Dark-Grayish-Blue;
+            }
+
+            .card__wrapper__description {
+                font-size: 0.828rem;
+                font-weight: 500;
+                padding-top: 0.79rem;
+                line-height: 1.5;
+                color: $Desaturated-Dark-Blue;
+            }
+        }
+
+        .card__wrapper__info {
+            padding-top: 1.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            .card__wrapper__profile {
+                display: flex;
+                align-items: center;
+                gap: 1.1rem;
+
+                img {
+                    width: 2.4rem;
+                    border-radius: 50%;
+                }
+
+                .profile__wrapper {
+                    .profile__wrapper__header {
+                        font-weight: 700;
+                        color: $Very-Dark-Grayish-Blue;
+                    }
+
+                    .profile__wrapper__date {
+                        font-size: 0.85rem;
+                        font-weight: 500;
+                        color: $Grayish-Blue;
+                    }
+                }
+            }
+
+            .card__wrapper__share {
+                background-color: $Light-Grayish-Blue;
+                line-height: 1.9;
+                text-align: center;
+                width: 2rem;
+                height: 2rem;
+                border-radius: 50%;
+
+                &:active {
+                    @include animation("scale-down 0.1s");
+                }
+            }
+        }
+
+        .card__wrapper__notification {
+            background-color: $Very-Dark-Grayish-Blue;
+            position: absolute;
+            top: 45%;
+            right: 21.5%;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding-inline: 2rem;
+            padding-block: 0.7rem;
+            border-radius: 0.5rem;
+            opacity: 0;
+            transition: 0.3s ease-in;
+
+            .notification__header {
+                color: $Desaturated-Dark-Blue;
+                font-size: 0.8rem;
+                font-weight: 500;
+                letter-spacing: 0.3rem;
+            }
+
+            .social__media {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+
+                li {
+                    a {
+                        img {
+                            width: 1rem;
+                        }
+                    }
+                }
+            }
+
+            &::before {
+                $size: 1rem;
+
+                content: "";
+                position: absolute;
+                border-top: $size solid $Very-Dark-Grayish-Blue;
+                border-bottom: $size solid transparent;
+                border-right: $size solid transparent;
+                border-left: $size solid transparent;
+                bottom: -2rem;
+                left: 50%;
+                right: 50%;
+            }
+
+            &.active {
+                opacity: 100%;
+            }
+        }
+    }
+
+    .attribution {
+        font-size: 11px;
+        text-align: center;
+
+        a {
+            color: hsl(228, 45%, 44%);
+        }
+    }
+
+    @media (max-width: 1439px) {
+        .card__wrapper {
+            position: relative;
+
+            .card__wrapper__notification {
+                top: 55%;
+                right: 2.3rem;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 780.98px) {
+        .card__wrapper {
+            .card__wrapper__detail {
+                padding-block: 1.3rem;
+            }
+        }
+    }
+
+    @media (max-width: 768.98px) {
+        padding-top: 3rem;
+
+        .card__wrapper {
+            grid-template-columns: 1fr;
+            column-gap: 0;
+            height: auto;
+            max-width: 100%;
+
+            .card__wrapper__img {
+                width: 100%;
+            }
+
+            .card__wrapper__detail {
+                padding-block: 2.5rem;
+                padding-inline: 2rem;
+            }
+        }
+    }
+
+    @media (max-width: 375.98px) {
+        .card__wrapper {
+            .card__wrapper__detail {
+                .card__wrapper__header {
+                    font-size: 0.9rem;
+                }
+
+                .card__wrapper__description {
+                    font-size: 0.75rem;
+                }
+            }
+
+            .card__wrapper__info {
+                .card__wrapper__profile {
+                    .profile__wrapper {
+                        .profile__wrapper__header {
+                            font-size: 0.7rem;
+                        }
+
+                        .profile__wrapper__date {
+                            font-size: 0.6rem;
+                        }
+                    }
+                }
+
+                .card__wrapper__share {
+                    background-color: $Light-Grayish-Blue;
+                    line-height: 1.9;
+                    text-align: center;
+                    width: 2rem;
+                    height: 2rem;
+                    border-radius: 50%;
+
+                    &:active {
+                        @include animation("scale-down 0.1s");
+                    }
+                }
+            }
+        }
+    }
+}
