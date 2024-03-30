@@ -20,7 +20,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  min-height: 102dvh;
+  min-height: 103dvh;
   padding-inline: 2rem;
   background-color: hsl(210, 46%, 95%);
   font-family: "Manrope", sans-serif;
@@ -155,6 +155,10 @@ body .attribution a {
 @media (max-width: 780.98px) {
   body .card__wrapper .card__wrapper__detail {
     padding-block: 1.3rem;
+  }
+  body .card__wrapper .card__wrapper__notification {
+    top: 80%;
+    right: 2rem;
   }
 }
 @media (max-width: 768.98px) {
