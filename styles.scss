@@ -37,7 +37,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    min-height: 102dvh;
+    min-height: 103dvh;
     padding-inline: 2rem;
     background-color: $Light-Grayish-Blue;
     font-family: "Manrope", sans-serif;
@@ -203,6 +203,11 @@ body {
         .card__wrapper {
             .card__wrapper__detail {
                 padding-block: 1.3rem;
+            }
+
+            .card__wrapper__notification {
+                top: 80%;
+                right: 2rem;
             }
         }
     }
